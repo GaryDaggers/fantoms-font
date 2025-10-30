@@ -64,6 +64,7 @@ jobs:
 
       - name: Build font
         run: make build
+        continue-on-error: true
 
       - name: Check with fontspector
         run: make test

@@ -1,9 +1,10 @@
 # Fantoms font build configuration
 
+# We point to the TTF that lives in the repo root.
+# ".." means: go up one folder from /sources to the top level.
 sources:
-  - Fantoms.glyphs
+  - ../Fantoms-Regular.ttf
 
 familyName: "Fantoms"
 
 buildOTF: false
-

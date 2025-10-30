@@ -23,10 +23,18 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Install toolset
-      run: |
+         - run: |
         sudo apt-get update
         sudo apt-get install ttfautohint libcairo2-dev python3-cairo-dev pkg-config python3-dev
         sudo snap install yq
+
+    - name: Run fontspector (don’t fail)
+      continue-on-error: true
+      run: |
+        fontspector sources/config.yaml
+
+    - uses: actions/cache@v4
+
     - uses: actions/cache@v4
       with:
         path: ./venv/
